@@ -11,12 +11,12 @@ public class ThrowGreande : MonoBehaviour
 {
 	[SerializeField] GameObject currentGrenade;
 	[SerializeField] float throwForce = 10f;
-	[SerializeField] float maxScale = 3f;
+	[SerializeField] float maxScale = 2f;
 	[SerializeField] float attractionRadiusMultiplier = 5f;
-	[SerializeField] float scaleIncreasePerSec = 1f;
+	[SerializeField] float scaleIncreasePerSec = 0.5f;
 	[SerializeField] float throwCooldown = 1f;
 	[SerializeField] float heldGrenadeDistance = 3f;
-	[SerializeField] float stabalizingForce = 50f;
+	[SerializeField] float stabalizingForce = 20f;
 	Transform _cameraTransform;
 
 	GameObject heldGrenade;
@@ -79,6 +79,11 @@ public class ThrowGreande : MonoBehaviour
 		// Spawns a grenade and begins growing it
 		if (canThrow && value.Get<float>() >= 1)
 		{
+			if (currentGrenade == null)
+			{
+				Debug.LogError("No grenade prefab set!");
+				return;
+			}
 			heldGrenade = Instantiate(currentGrenade, _cameraTransform.position + _cameraTransform.forward * heldGrenadeDistance, transform.rotation);
 			heldRigidbody = heldGrenade.GetComponent<Rigidbody>();
 			heldRigidbody.useGravity = false;

@@ -12,10 +12,10 @@ public class Toss : MonoBehaviour
 {
 	[SerializeField] GameObject heldObject;
 	[SerializeField] Rigidbody heldRigidbody;
-	[SerializeField] float throwForce = 10f;
+	[SerializeField] float throwForce = 50f;
 	[SerializeField] float heldDistance = 5f;
 	[SerializeField] float grabDistance = 5f;
-	[SerializeField] float stabalizingForce = 1f;
+	[SerializeField] float stabalizingForce = 10f;
 	Transform _mainCameraTransform;
 
 	// Start is called before the first frame update

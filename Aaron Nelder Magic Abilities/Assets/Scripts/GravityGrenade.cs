@@ -13,9 +13,14 @@ public class GravityGrenade : MonoBehaviour
 {
 	[SerializeField] float attractionForce = 1;
 	[SerializeField] SphereCollider trigger;
-	[SerializeField] float explosionForceMultiplier = 200;
+	[SerializeField] float explosionForceMultiplier = 50;
 
 	List<Rigidbody> attractedRigidbodies = new List<Rigidbody>();
+
+	void Start()
+	{
+		trigger.isTrigger = true;
+	}
 
 	public void StartFuse()
 	{

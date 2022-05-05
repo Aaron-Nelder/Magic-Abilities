@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CinemachineTarget
   - Throwable
+  - UI text
+  - Crosshair
   layers:
   - Default
   - TransparentFX

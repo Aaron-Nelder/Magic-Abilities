@@ -16,8 +16,12 @@ public class AbilitySwitcher : MonoBehaviour
 	public ScaleGun scaleGun;
 
 	// Start is called before the first frame update
-	void Start()
+	void Awake()
 	{
+		abilityText = GameObject.FindGameObjectWithTag("UI text").GetComponent<Text>();
+		throwGreande = GetComponent<ThrowGreande>();
+		toss = GetComponent<Toss>();
+		scaleGun = GetComponent<ScaleGun>();
 		SetActiveAbility(currentAbility);
 	}
 
@@ -40,6 +44,13 @@ public class AbilitySwitcher : MonoBehaviour
 
 	void SetActiveAbility(int ability)
 	{
+
+		if (abilityText == null)
+		{
+			print("Ability text object has not been set");
+			return;
+		}
+
 		toss.enabled = false;
 		throwGreande.enabled = false;
 		scaleGun.enabled = false;
